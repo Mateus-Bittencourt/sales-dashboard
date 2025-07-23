@@ -6,7 +6,7 @@ import { darkTheme, GlobalStyle, lightTheme } from '@/styles'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={darkTheme}>
       <GlobalStyle />
       <App />
     </ThemeProvider>

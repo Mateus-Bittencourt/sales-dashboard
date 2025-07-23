@@ -1,5 +1,13 @@
 import { Box, Container, Grid } from '@mui/material'
-import { BannerImage, FormComponent } from '@components'
+import {
+  BannerImage,
+  FormComponent,
+  Logo,
+  StyledH1,
+  StyledP,
+  StyledUl,
+} from '@components'
+import { pxToRem } from '@utils'
 
 function Registration() {
   return (
@@ -13,18 +21,30 @@ function Registration() {
             sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
           >
             <Container maxWidth="sm">
-              <h1>Registration</h1>
+              <Box sx={{ marginBottom: pxToRem(24) }}>
+                <Logo height={41} width={100} />
+              </Box>
+              <Box sx={{ marginBottom: pxToRem(24) }}>
+                <StyledH1>Create your account</StyledH1>
+                <StyledP>First, tell us who you are.</StyledP>
+                <StyledUl>
+                  <li>Between 8 and 16 characters;</li>
+                  <li>At least one uppercase letter;</li>
+                  <li>At least one special character.</li>
+                  <li>At least one number</li>
+                </StyledUl>
+              </Box>
               <FormComponent
                 inputs={[
-                  { type: 'email', placeholder: 'Email', name: 'username' },
+                  { type: 'text', placeholder: 'Full name' },
+                  { type: 'email', placeholder: 'Email' },
                   {
-                    type: 'password',
-                    placeholder: 'Password',
-                    name: 'password',
+                    type: 'phone',
+                    placeholder: 'Phone',
                   },
                 ]}
                 buttons={[
-                  { className: 'primary', type: 'submit', children: 'Login' },
+                  { className: 'primary', type: 'submit', children: 'Next' },
                 ]}
                 message={{ type: 'error', msg: 'Invalid credentials' }}
               />
