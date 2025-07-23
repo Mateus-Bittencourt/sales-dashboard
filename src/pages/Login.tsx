@@ -1,4 +1,4 @@
-import { BannerImage } from '@components'
+import { BannerImage, FormComponent } from '@components'
 import { Box, Container, Grid } from '@mui/material'
 
 function Login() {
@@ -13,14 +13,38 @@ function Login() {
             sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
           >
             <Container maxWidth="sm">
-              <h1>Login Page</h1>
+              <h1>Login</h1>
+              <FormComponent
+                inputs={[
+                  {
+                    type: 'email',
+                    placeholder: 'Email',
+                    name: 'username',
+                    disabled: true,
+                  },
+                  {
+                    type: 'password',
+                    placeholder: 'Password',
+                    name: 'password',
+                  },
+                ]}
+                buttons={[
+                  {
+                    className: 'primary',
+                    type: 'submit',
+                    children: 'Login',
+                    disabled: true,
+                  },
+                ]}
+                message={{ type: 'error', msg: 'Invalid credentials' }}
+              />
             </Container>
           </Grid>
           <Grid
             item
             xs={12}
             sm={6}
-            sx={{ display: { xs: 'none', sm: 'block' }, height: '100vh' }}
+            sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             <BannerImage />
           </Grid>
