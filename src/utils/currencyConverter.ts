@@ -1,11 +1,11 @@
 /**
- * Converts to BRL currency format
- * @param value - The pixel value to convert.
- * @return currency format, ex: value: 4.3  return R$ 4,30
+ * Converts to USD currency format
+ * @param value - Value to be converted
+ * @return Converted value in USD currency format
  */
 
 export const currencyConverter = (value: number): string =>
   new Intl.NumberFormat('pt-BR', {
     style: 'currency',
-    currency: 'BRL',
+    currency: 'USD',
   }).format(value)
