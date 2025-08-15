@@ -8,12 +8,14 @@ export const useFormValidation = (inputs: InputProps[]) => {
   const [formValid, setFormValid] = useState(false)
 
   useEffect(() => {
-    const allFieldsValid = inputs.every((inputs, index) => {
-      if (inputs.type === 'email')
+    const allFieldsValid = inputs.every((input, index) => {
+      const value = formValues[index]
+      if (input.required && !value) return false
+
+      if (input.type === 'email')
         return /\S+@\S+\.\S+/.test(String(formValues[index]))
 
-      if (inputs.type === 'password')
-        return String(formValues[index]).length > 7
+      if (input.type === 'password') return String(formValues[index]).length > 7
 
       return true
     })
