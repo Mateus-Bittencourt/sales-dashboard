@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   AvatarList,
   CardComponent,
@@ -9,9 +10,8 @@ import {
   StyledSpan,
 } from '@components'
 import { useGet } from '@hooks'
-import { Card, Container, Grid } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 import type {
-  ListDataProps,
   HighlightsData,
   StarsData,
   NewsData,
@@ -119,7 +119,7 @@ function Home() {
                   }
                 >
                   {!highlightsLoading && highlightsData && (
-                    <>
+                    <Link to="/leads">
                       <StyledH2 className="mb-1">Leads contacted</StyledH2>
                       <StyledH3 size={40} lineheight={40} className="mb-1">
                         {highlightsData[2].value}
@@ -127,7 +127,7 @@ function Home() {
                       <StyledSpan>
                         {highlightsTextConverter(highlightsData[2].subtitle)}
                       </StyledSpan>
-                    </>
+                    </Link>
                   )}
                 </CardComponent>
               </Grid>
