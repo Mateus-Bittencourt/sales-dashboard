@@ -3,7 +3,7 @@ import type { InputProps } from '@types'
 
 export const useFormValidation = (inputs: InputProps[]) => {
   const [formValues, setFormValues] = useState(
-    inputs.map((input) => input.value || '')
+    inputs.map(input => input.value || '')
   )
   const [formValid, setFormValid] = useState(false)
 
@@ -15,7 +15,15 @@ export const useFormValidation = (inputs: InputProps[]) => {
       if (input.type === 'email')
         return /\S+@\S+\.\S+/.test(String(formValues[index]))
 
-      if (input.type === 'password') return String(formValues[index]).length > 7
+      if (input.type === 'password') {
+        const password = String(value)
+        const hasCorrectLength = password.length >= 8 && password.length <= 20
+        const hasUppercase = /[A-Z]/.test(password)
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password)
+        const hasNumber = /\d/.test(password)
+
+        return hasCorrectLength && hasNumber && hasSpecialChar && hasUppercase
+      }
 
       return true
     })
@@ -23,7 +31,7 @@ export const useFormValidation = (inputs: InputProps[]) => {
   }, [formValues, inputs])
 
   const handleChange = (index: number, value: string) =>
-    setFormValues((prevValues) => {
+    setFormValues(prevValues => {
       const newValues = [...prevValues]
       newValues[index] = value
       return newValues
