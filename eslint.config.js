@@ -22,4 +22,17 @@ export default tseslint.config([
       globals: globals.browser,
     },
   },
+  {
+    files: ['cypress/**/*.{js,ts,jsx,tsx}', '**/*.cy.{js,ts,jsx,tsx}'],
+    plugins: { cypress },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...cypress.environments.globals,
+      },
+    },
+    rules: {
+      ...cypress.configs.recommended.rules,
+    },
+  },
 ])

@@ -9,20 +9,33 @@ import Cookies from 'js-cookie'
 import { Home, Leads, Login, Profile, Registration } from './pages'
 
 function App() {
-  const ProtectedRoute = () => {
-    const checkAuth = Cookies.get('Authorization')
-    if (!checkAuth) {
-      alert('You must be logged in to access this page.')
-      return <Navigate to="/" replace />
-    }
+  const isAuth = () => Boolean(Cookies.get('Authorization'))
 
-    return <Outlet />
-  }
+  const RootRedirect = () => (
+    <Navigate to={isAuth() ? '/home' : '/login'} replace />
+  )
+
+  const ProtectedRoute = () =>
+    isAuth() ? <Outlet /> : <Navigate to="/login" replace />
+
+  const GuestRoute = () =>
+    isAuth() ? <Navigate to="/home" replace /> : <Outlet />
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        {/* Rota raiz decide o destino conforme autenticação */}
+        <Route path="/" element={<RootRedirect />} />
+
+        {/* Login é público apenas para não autenticados */}
+        <Route element={<GuestRoute />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+        {/* Registration é público para todos (inclusive autenticados) */}
         <Route path="/registration" element={<Registration />} />
+
+        {/* Rotas privadas */}
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<Home />} />
           <Route path="/leads" element={<Leads />} />
