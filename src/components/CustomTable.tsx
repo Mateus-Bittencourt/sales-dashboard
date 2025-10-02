@@ -38,13 +38,13 @@ const TableWrapper = styled.div`
     }
 
     th {
-      color: ${(props) => props.theme.typographies.subtitle};
+      color: ${props => props.theme.typographies.subtitle};
       font-weight: 600;
     }
 
     tr {
       border-bottom: ${pxToRem(1)} solid
-        ${(props) => props.theme.appDefaultStroke};
+        ${props => props.theme.appDefaultStroke};
 
       &:last-child {
         border-bottom: none;

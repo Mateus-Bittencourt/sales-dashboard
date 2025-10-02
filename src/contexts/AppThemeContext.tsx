@@ -12,7 +12,7 @@ export const AppThemeProvider = ({ children }: { children: ReactNode }) => {
   const [appTheme, setAppTheme] = useState(savedTheme || 'light')
 
   const toggleTheme = () =>
-    setAppTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
+    setAppTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'))
 
   useEffect(() => localStorage.setItem('theme', appTheme))
 
