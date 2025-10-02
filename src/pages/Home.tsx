@@ -59,6 +59,7 @@ function Home() {
             <>
               <Grid item xs={12} sm={4}>
                 <CardComponent
+                  id="total-sales"
                   className={
                     highlightsLoading
                       ? 'skeleton-loading skeleton-loading-mh-1'
@@ -83,6 +84,7 @@ function Home() {
 
               <Grid item xs={12} sm={4}>
                 <CardComponent
+                  id="goal-of-the-month"
                   className={
                     highlightsData
                       ? highlightsData[1].subtitle
@@ -112,6 +114,7 @@ function Home() {
 
               <Grid item xs={12} sm={4}>
                 <CardComponent
+                  id="leads-contacted"
                   className={
                     highlightsLoading
                       ? 'skeleton-loading skeleton-loading-mh-1'
@@ -137,6 +140,7 @@ function Home() {
           <Grid item xs={12} sm={7}>
             {!salesMonthError && (
               <CardComponent
+                id="sales-by-month"
                 className={
                   salesMonthLoading
                     ? 'skeleton-loading skeleton-loading-mh-2'
@@ -149,8 +153,8 @@ function Home() {
                       Sales value in the month
                     </StyledH2>
                     <CustomChart
-                      labels={salesMonthData.labels.map((label) => label)}
-                      data={salesMonthData.data.map((data) => data)}
+                      labels={salesMonthData.labels.map(label => label)}
+                      data={salesMonthData.data.map(data => data)}
                       type={salesMonthData.type}
                     />
                   </>
@@ -162,6 +166,7 @@ function Home() {
           <Grid item xs={12} sm={5}>
             {!salesStarsError && (
               <CardComponent
+                id="top-sales-stars"
                 className={
                   salesStarsLoading
                     ? 'skeleton-loading skeleton-loading-mh-2'
@@ -172,7 +177,7 @@ function Home() {
                   <>
                     <StyledH2 className="mb-1">Top Sales Stars</StyledH2>
                     <AvatarList
-                      listData={salesStarsData.map((star) => ({
+                      listData={salesStarsData.map(star => ({
                         avatar: '/dnc-avatar.svg',
                         name: star.name,
                         subtitle: currencyConverter(star.value),
@@ -187,6 +192,7 @@ function Home() {
           <Grid item xs={12} sm={5}>
             {!newsError && (
               <CardComponent
+                id="relevant-news"
                 className={
                   newsLoading ? 'skeleton-loading skeleton-loading-mh-2' : ''
                 }
@@ -196,7 +202,7 @@ function Home() {
                     <StyledH2 className="mb-1">Relevant news</StyledH2>
                     <CustomTable
                       headers={['Title', 'Time']}
-                      rows={newsData.map((news) => [
+                      rows={newsData.map(news => [
                         <a
                           className="ellipsis ellipsis-sm"
                           href={news.link}
@@ -223,6 +229,7 @@ function Home() {
           <Grid item xs={12} sm={7}>
             {!salesYearError && (
               <CardComponent
+                id="sales-per-month"
                 className={
                   salesYearLoading
                     ? 'skeleton-loading skeleton-loading-mh-2'
@@ -233,8 +240,8 @@ function Home() {
                   <>
                     <StyledH2 className="mb-1">Sales per month</StyledH2>
                     <CustomChart
-                      labels={salesYearData.labels.map((label) => label)}
-                      data={salesYearData.data.map((data) => data)}
+                      labels={salesYearData.labels.map(label => label)}
+                      data={salesYearData.data.map(data => data)}
                       type={salesYearData.type}
                     />
                   </>

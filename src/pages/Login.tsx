@@ -51,7 +51,7 @@ function Login() {
   useEffect(() => {
     if (data?.jwt_token) {
       const decodedJwt: DecodedJwt = jwtDecode(data?.jwt_token)
-      const expires = jwtExpirationDateConverter(decodedJwt.exp) || 99999
+      const expires = jwtExpirationDateConverter(decodedJwt.exp)
       console.log(expires)
       Cookies.set('Authorization', data?.jwt_token, {
         expires,

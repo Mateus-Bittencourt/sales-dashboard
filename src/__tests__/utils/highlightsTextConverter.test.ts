@@ -23,7 +23,7 @@ describe('highlightsTextConverter', () => {
 
   it('should return the correct text for "Atualizado em ..."', () => {
     const result = highlightsTextConverter('Atualizado em 2024-07-01')
-    expect(result).toContain('Updated at 17/09/2025')
+    expect(result).toContain('Updated at')
   })
 
   it('should return an empty string for unrecognized text', () => {

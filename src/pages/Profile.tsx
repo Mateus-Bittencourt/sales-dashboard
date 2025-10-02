@@ -134,6 +134,7 @@ function Profile() {
                       }))}
                       buttons={[
                         {
+                          id: 'update-profile',
                           className: 'primary',
                           disabled: !formValid || profileUpdateLoading,
                           type: 'submit',
@@ -143,6 +144,7 @@ function Profile() {
                           onClick: handleSubmit,
                         },
                         {
+                          id: 'delete-account',
                           className: 'alert',
                           disabled: profileDeleteLoading,
                           type: 'button',
@@ -163,13 +165,18 @@ function Profile() {
             <CardComponent>
               <StyledH2 className="mb-1">Account settings</StyledH2>
               <StyledButton
+                id="switch-theme"
                 className="primary mb-1"
                 onClick={themeContext?.toggleTheme}
               >
                 Switch to{' '}
                 {themeContext?.appTheme === 'light' ? 'dark' : 'light'} theme
               </StyledButton>
-              <StyledButton className="alert" onClick={logout}>
+              <StyledButton
+                id="logout-button"
+                className="alert"
+                onClick={logout}
+              >
                 Logout
               </StyledButton>
             </CardComponent>
