@@ -103,6 +103,7 @@ function Leads() {
         <Grid container spacing={4}>
           <Grid item xs={12} sm={7}>
             <CardComponent
+              id="leads-card"
               className={
                 leadsLoading ? 'skeleton-loading skeleton-loading-mh-2' : ''
               }
@@ -113,7 +114,7 @@ function Leads() {
                   {leadsData?.length ? (
                     <CustomTable
                       headers={['Name', 'Email', 'Phone', '']}
-                      rows={leadsData.map((lead) => [
+                      rows={leadsData.map(lead => [
                         <StyledP>{lead.name}</StyledP>,
                         <StyledP>{lead.email}</StyledP>,
                         <StyledP>{lead.phone}</StyledP>,
@@ -147,6 +148,7 @@ function Leads() {
                 }))}
                 buttons={[
                   {
+                    id: 'add-lead',
                     className: 'primary',
                     disabled:
                       !formValid || createLeadLoading || leadDeleteLoading,
