@@ -20,8 +20,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["vite/client"]
   },
-  "include": ["src"],
-  "exclude": ["src/**/*.d.ts", "!src/styles/styled.d.ts"]
+  "include": ["src/**/*", "src/styles/styled.d.ts", "src/vite-env.d.ts"]
 }
