@@ -4,8 +4,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle<{ theme?: Theme }>`
   body, html {
-    background: ${(props) => props.theme.appBackground};
-    color: ${(props) => props.theme.appColor};
+    background: ${props => props.theme.appBackground};
+    color: ${props => props.theme.appColor};
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
@@ -30,10 +30,10 @@ export const GlobalStyle = createGlobalStyle<{ theme?: Theme }>`
 
   @keyframes skeletonLoading {
     from {
-      background-color: ${(props) => props.theme.appSkeletonFrom};
+      background-color: ${props => props.theme.appSkeletonFrom};
     }
     to {
-      background-color: ${(props) => props.theme.appSkeletonTo};
+      background-color: ${props => props.theme.appSkeletonTo};
     }
   }
 

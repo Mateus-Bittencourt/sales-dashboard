@@ -3,10 +3,10 @@ import type { InputProps } from '@types'
 import { pxToRem } from '@utils'
 
 export const StyledInput = styled.input<InputProps>`
-  background-color: ${(props) => props.theme.textInput.active};
-  color: ${(props) => props.theme.textInput.activeColor};
+  background-color: ${props => props.theme.textInput.active};
+  color: ${props => props.theme.textInput.activeColor};
   border-radius: ${pxToRem(8)};
-  border: ${pxToRem(1)} solid ${(props) => props.theme.textInput.borderColor};
+  border: ${pxToRem(1)} solid ${props => props.theme.textInput.borderColor};
   box-sizing: border-box;
   cursor: text;
   height: ${pxToRem(40)};
@@ -19,14 +19,14 @@ export const StyledInput = styled.input<InputProps>`
   width: 100%;
 
   &:disabled {
-    background-color: ${(props) => props.theme.textInput.disabled};
+    background-color: ${props => props.theme.textInput.disabled};
     border: ${pxToRem(1)} solid
-      ${(props) => props.theme.textInput.disabledBorderColor};
-    color: ${(props) => props.theme.textInput.disabledColor};
+      ${props => props.theme.textInput.disabledBorderColor};
+    color: ${props => props.theme.textInput.disabledColor};
     cursor: not-allowed;
   }
 
   &::placeholder {
-    color: ${(props) => props.theme.textInput.placeholderColor};
+    color: ${props => props.theme.textInput.placeholderColor};
   }
 `
